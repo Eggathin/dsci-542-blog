@@ -1,0 +1,38 @@
+---
+title: "Learning Supervised Machine Learning"
+author: "Oswin Gan"
+date: "2026-01-17"
+categories: [analysis]
+---
+
+Adapted from UBC MDS DSCI 571: Supervised Learning I
+
+I entered the Master of Data Science program at University of British Columbia with a solid background in data-science related disciplines. In my undergrad, I studied statistics as my major, along with minors in math and computer science. Consequently, most of the content in the first few blocks were reviewing topics I had already learned. One major exception was Machine Learning, which I had no prior experience with. As such, I dedicated the majority of my attention into grasping this foreign subject. 
+
+In this blog, I will document my ongoing journey to understand the principles of Machine Learning, beginning with Supervised Learning.
+
+The first Machine Learning course in the MDS curriculum was DSCI 571: Supervised Learning I. At first, I had no idea what this course was supposed to be about based on the title. It was only after speaking with a few of my peers when I learned it referred to Supervised Machine Learning. At this point in the program, I was pretty full of myself for being familiar with most of the content taught at the time. 571 would be both a humbling experience as well as a reminder of what it’s like to learn a new subject from scratch.
+
+571 is taught in Python, but this blog does not assume any prior knowledge of Python programming. While functions from the sklearn module are referenced, the coverage of Machine Learning is purely conceptual.
+
+As with any introductory course, 571 begins with an overview of Machine Learning. Machine Learning (ML) is defined as “a subset of AI where systems learn patterns from data instead of being explicitly programmed”. This is differentiated from Artificial Intelligence, which is the broader task of making computers perform human tasks and Deep Learning, which is a subset of Machine Learning utilising neural networks, typically associated with commercial Large Language Models.
+
+Next, we were introduced to the focus of 571: Supervised learning, where a model is trained on input data that is paired with a corresponding output and subsequently used to make predictions on unseen data. 
+
+Almost immediately, we were faced with the code for our first supervised machine learning model. At this point, we were not yet familiar with the functions or process of creating a model. Accordingly, the course did not expect us to understand how the code works yet, only how it transforms inputs into outputs. Despite this, I believe it to be a conscious choice to expose us to the code so that we could refer back to the lesson later on with a renewed perspective after learning the necessary knowledge.
+
+Our first formal lesson began with the two primary types of supervised learning algorithms: Classification and Regression. Classification involves prediction between discrete classes, while Regression predicts a continuous value. Likewise, we learn about two distinct goals of ML: Inference and Prediction. Inference is the understanding and quantifying of relationships between variables, and Prediction, as mentioned previously, predicts a target value from related input values. Both goals are related and are often used in tandem with one another. I noted that several of these terms are familiar to statistical analysis, which I had experience with. Making connections to Statistics was consistently helpful to my understanding of Machine Learning. The disciplines have significant overlap, with ML borrowing many techniques from statistics.
+
+Next, we underwent the process of creating our first model in the form of DummyClassifier, a baseline model which always predicts the most frequent label in the training set. The DummyClassifier is a type of decision tree, which makes predictions by splitting data at decision nodes based on a conditional. The tree continues to split until an end node is reached, at which point a prediction is returned. Its regression equivalent is DummyRegressor, which always predicts the average value of the numeric training data. In statistics, baselines are similarly used to benchmark the effectiveness of a model. 
+
+The second lecture explained the fundamentals of Machine Learning. The main goal of a ML algorithm is generalization to unseen data based on what it has seen in the training data. Thus, there are two types of error used to gauge the effectiveness of a model: Training error and generalization error, or error on the entire distribution of data. However, since we will never have access to all of the data, we must approximate it via cross-validation.
+
+Cross-validation is a central concept which was used throughout not only this course, but subsequent ones. The training dataset is split into “folds”, and the model is trained on a subset of those folds and validated on the remaining one. This process is repeated with each fold as the validation fold. The final score is the average of the scores from each fold. 
+
+Supervised Machine Learning has a fundamental tradeoff, also known as the bias-variance tradeoff. Bias is the tendency to predict a consistently incorrect outcome (underfitting), while variance is the sensitivity to randomness in the training data (overfitting). As a model becomes more complex, it is more inclined towards overfitting. A balance between complexity and simplicity results in the best generalizability for the model, while going too far in either direction will stunt its performance.
+
+![](malp_0201.png)
+
+The Golden Rule of Machine learning is that the test data should not influence the training of the model in any way. If this assumption is violated, the results of the model can be misleading.
+
+The rest of my Machine Learning journey involved the continuous reference and use of these fundamentals. As with any subject, having a solid understanding of the foundation makes continued learning much more straightforward. One struggle I faced was that I would often find myself focusing too much on the code itself, rather than how it worked under the surface. For example, cross-validation became a black box that I’d put a model in and get a number which I vaguely understood to be a metric of my model’s performance. I was averse to “peeking under the hood”, as knowing what code to write was usually sufficient to perform well in the course.
